@@ -23,7 +23,11 @@ Act: You execute the test
 Assert: You check what you need to  
 
 ## Nunit
-Project setup
+Add a new project
+![image](https://user-images.githubusercontent.com/63453969/221358557-2ca29da2-9751-4676-ae36-afdd732f89c4.png)
+
+Then Add dependencies for nunit
+
 ![image](https://user-images.githubusercontent.com/63453969/182658297-e364890f-de66-4439-8199-c5a4660462aa.png)
 Or update your csproj with
 ```
@@ -33,6 +37,12 @@ Or update your csproj with
     <PackageReference Include="NUnit3TestAdapter" version="4.1.0" />
   </ItemGroup>
 ```
+
+Finally add a reference to your main project
+![image](https://user-images.githubusercontent.com/63453969/221358642-23553d39-310e-433a-b10e-8e889f504e07.png)
+
+
+
 
 ## Your first test
 Imagine your class looked like this
@@ -129,6 +139,7 @@ namespace TestProject1
     }
 }
 ```
+
 
 # HW
 Follow these tutorials to learn Nunit. Commit your code to github
