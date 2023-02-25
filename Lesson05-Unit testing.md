@@ -26,7 +26,7 @@ Assert: You check what you need to
 ### Add a new project
 ![image](https://user-images.githubusercontent.com/63453969/221358708-f8fbc526-ac2b-4b1c-8212-e0bff7fe1948.png)
 
-Select class library
+Select class library   
 ![image](https://user-images.githubusercontent.com/63453969/221358737-0f3abd80-3810-41e3-bb7c-6b374b8e444b.png)
 
 
