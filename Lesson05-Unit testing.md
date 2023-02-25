@@ -145,3 +145,5 @@ Follow these tutorials to learn Nunit. Commit your code to github
 From now on when sumbitting your homework you are expected to have a unit test with each one.
 
 Secondly in this course homeworks will be similar to work. Where you gradually work on a project over several weeks and sometimes we'll leave an assignment and come back to it weeks later. This will teach you how to write good maintainable code.
+
+
