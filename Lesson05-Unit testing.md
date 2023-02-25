@@ -23,10 +23,10 @@ Act: You execute the test
 Assert: You check what you need to  
 
 ## Nunit
-Add a new project
+### Add a new project
 ![image](https://user-images.githubusercontent.com/63453969/221358557-2ca29da2-9751-4676-ae36-afdd732f89c4.png)
 
-Then Add dependencies for nunit
+### Then Add dependencies for nunit
 
 ![image](https://user-images.githubusercontent.com/63453969/182658297-e364890f-de66-4439-8199-c5a4660462aa.png)
 Or update your csproj with
@@ -38,7 +38,7 @@ Or update your csproj with
   </ItemGroup>
 ```
 
-Finally add a reference to your main project
+### Finally add a reference to your main project
 ![image](https://user-images.githubusercontent.com/63453969/221358642-23553d39-310e-433a-b10e-8e889f504e07.png)
 
 
