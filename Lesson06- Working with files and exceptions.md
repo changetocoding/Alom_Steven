@@ -187,7 +187,7 @@ Must extend Exception()
 
 
 # Homework
-1. (optional depending on how fast get through others) Create a file searcher application that given a directory and a filename returns files that match the name in that directory
+1. Create a file searcher application that given a directory and a filename returns files that match the name in that directory
 2. New feature on phone book. Saving: Save the names and numbers to a text file automatically when a new name/number is added. Read from that file at the start
 
 
