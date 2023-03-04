@@ -17,6 +17,10 @@ public class MyClass : IDisposable{}
 `\` is an escape character. 
 ```csharp
 Console.WriteLine("Hello World!\nCreates a new line\tTab");
+
+Console.WriteLine(@"Hello World!\nCreates a new line\tTab\\ "); // String literal aka take this as is and don't escape anything. Useful when you paste from internet
+
+Console.WriteLine($"Print \"{mystring}\". 2nd time:{mystring}");  // `print ${mystring}`
 ```
 But using `@` before a string means `\` is ignored as an escape character
 ```csharp
