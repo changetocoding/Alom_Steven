@@ -75,3 +75,10 @@ public class MyService : IMyService
 ## Documentation
 https://github.com/Moq/moq4/wiki/Quickstart
 
+
+## Homework
+
+1. Code review changes
+2. Use Moq to mock out file stuff so can test phonebook alone
+3. MoneyBox - To be emailed
+
