@@ -43,7 +43,9 @@ Or update your csproj with
 ```
 
 ### Finally add a reference to your main project
-![image](https://user-images.githubusercontent.com/63453969/221358642-23553d39-310e-433a-b10e-8e889f504e07.png)
+![image](https://user-images.githubusercontent.com/63453969/226105073-daf6f23e-914c-41ae-8855-2b24fa359c11.png)
+
+In your test project add a reference to your main project
 
 
 
