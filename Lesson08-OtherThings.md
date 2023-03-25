@@ -221,6 +221,54 @@ enum Command
 }
 ```
 
+## Enums and Props:
+```cs
+        private int _volume;
+        public Volume Volume
+        {
+            get
+            {
+                if (_volume == 0)
+                {
+                    return Volume.Mute;
+                }
+                else if (_volume < 50)
+                {
+                    return Volume.Low;
+                }
+                else if (_volume <= 100)
+                {
+                    return Volume.High;
+                }
+                throw new Exception();
+            }
+            set
+            {
+                switch (value)
+                {
+                    case Volume.Mute:
+                        _volume = 0;
+                        break;
+                    case Volume.Low:
+                        _volume = 25;
+                        break;
+                    case Volume.High:
+                        _volume= 75;
+                        break;
+                    default:
+                        _volume = 0;
+                        break;
+                }
+            }
+        }
+
+        public void SetVolume(int vol)
+        {
+            _volume = vol;
+            Volume = Volume.High;
+        }
+```
+
 # Quick Review: Recursion
 Pretty simple. Function that calls itself
 
