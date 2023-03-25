@@ -76,7 +76,6 @@ public class MyService : IMyService
 https://github.com/Moq/moq4/wiki/Quickstart
 
 ## More morking
-## Mocking
 Covered:
 - Consider inputs, and outputs and that determines test
 - In example `_dict` is also an input
