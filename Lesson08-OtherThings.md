@@ -312,3 +312,53 @@ Issues with recursion:
 - Bit more expensive - Complier has to add a new method stack
 - Takes more memory - Recursive methods tend to take up more memory as they do not release object references until they start unwinding
 - Code is harder to understand/mentally process (unless recursive problem). The golden rule of programming is you do more reading and understand code than writing so write your code so its easier to understand
+
+
+## Homework:
+1. Moneybox (emailed. Low piority)
+2. The quiz (get completed)
+
+# Homework
+1. C# pub quiz test. Not allowed to use internet for it
+```
+Part 1 - Quiz. Can't use internet for these questions. Or visual studio or ChatGpt. The main purpose for me is to work out the gaps in your knowledge so we can cover them.
+1. What is SOLID. List all 5
+2. What is the difference between struct and class
+3. List Data structures in c# e.g. List, ... 
+4. What is sealed, abstract and virtual keywords 
+5. What are the different access modifiers in c# (e.g. private). And what do they do 
+6. What is the difference between "const", "static" and "static readonly" keywords
+7. Write a line of code that throws an exception 
+8. When should you use stringbuilder 
+9. What is the CLR - Common Language Runtime
+10. Why are strings immutable
+11. What is diff beyween GetType(), is and typeof()
+12. How is a dictionary implemented
+13. What is the Equals/hashcode contract. Aka why are the equals() and hashcode() important on every class and important in dictionary. 
+14. What happens when there is a collision in a dictionary
+15. What is a constructor. Write code for an example
+16. What is the difference between method overloading and overriding. Give an example of each 
+17. What is the main entry point of a c# application 
+18. What is TDD? Explain the 3 steps in it. 
+19. Explain difference between ref and out keywords in C#
+20. What is the output for executing the following code?
+public class TestClass
+{
+    private string a = "Unchanged";
+    
+    private void TestMethod(string b)
+    {
+        var newString = "Changed in TestMethod";
+        b = newString;
+        Console.WriteLine(b);
+    }
+    
+    public void RunTest()
+    {
+        TestMethod(a);
+        Console.WriteLine(a);
+    }
+}
+var test = new TestClass();
+test.RunTest();
+```
