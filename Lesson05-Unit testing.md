@@ -147,6 +147,99 @@ namespace TestProject1
 ```
 
 
+
+## Mocking
+Covered:
+- Consider inputs, and outputs and that determines test
+- In example `_dict` is also an input
+- Mocking to setup what `_dict` is
+- Using mocking framework to verify that the expected outputs have happened
+
+```cs
+using Moq;
+
+namespace TestProject1
+{
+    public class Tests
+    {
+        [SetUp]
+        public void Setup()
+        {
+        }
+
+        [Test]
+        public void WhenNameAndNumberDoesNotExist_NameAndNumberIsAddedToDictAndSavedToFile()
+        {
+            // setup
+            var mock = new Mock<IHelper>();
+            mock.Setup(x => x.LoadFromFiles()).Returns(new Dictionary<string, string>());
+            var classUnderTest = new MyClass(mock.Object);
+
+            // act
+            classUnderTest.AddEntry("me", "07777");
+
+            // Assert step
+            Assert.That(classUnderTest.GetNumber("me"), Is.EqualTo("07777"));
+            mock.Verify(x => x.SaveToFile(It.IsAny<Dictionary<string, string>>()), Times.Once);
+
+        }
+
+
+        [Test]
+        public void WhenNameAndNumberExists_NothingHappens()
+        {
+            // setup
+            var mock = new Mock<IHelper>();
+            var dict = new Dictionary<string, string>() { { "me", "00000" } };
+            mock.Setup(x => x.LoadFromFiles()).Returns(dict);
+            var classUnderTest = new MyClass(mock.Object);
+
+            // act
+            classUnderTest.AddEntry("me", "07777");
+
+            // Assert step
+
+            Assert.That(classUnderTest.GetNumber("me"), Is.EqualTo("00000"));
+            mock.Verify(x => x.SaveToFile(It.IsAny<Dictionary<string, string>>()), Times.Never);
+        }
+    }
+
+
+    class MyClass
+    {
+        private readonly IHelper _helper;
+        private readonly Dictionary<string, string> _dict;
+
+        public MyClass(IHelper helper)
+        {
+            _helper = helper;
+            _dict = _helper.LoadFromFiles();
+        }
+
+        public void AddEntry(string name, string number)
+        {
+            if(!_dict.ContainsKey(name))
+            {
+                _dict.Add(name, number);
+                _helper.SaveToFile(_dict);
+            }
+        }
+
+        public string GetNumber(string name)
+        {
+            return _dict[name];
+        }
+    }
+
+    public interface IHelper
+    {
+        Dictionary<string, string> LoadFromFiles();
+        void SaveToFile(Dictionary<string, string> dict);
+    }
+}
+```
+
+
 # HW
 Follow these tutorials to learn Nunit. Commit your code to github
 
