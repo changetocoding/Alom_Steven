@@ -2,8 +2,7 @@
 
 
 ### Virtual vs Override & method hiding
-```
-// See https://aka.ms/new-console-template for more information
+```cs
 Console.WriteLine("Hello, World!");
 Parent p = new Parent();
 Parent c = new Child();
@@ -60,7 +59,7 @@ class Child : Parent
 2 methods with same name but different parameters
 
 ### Ref keyword
-```
+```cs
 var test = new TestClass();
 test.RunTest();
 
@@ -83,7 +82,7 @@ class TestClass
 }
 ```
 ### Inheritance, abstract classes, methods
-```
+```cs
 namespace ConsoleApp18
 {
     public interface IPhonebook
