@@ -2,6 +2,7 @@
 
 
 ### Virtual vs Override & method hiding
+```
 // See https://aka.ms/new-console-template for more information
 Console.WriteLine("Hello, World!");
 Parent p = new Parent();
@@ -53,7 +54,7 @@ class Child : Parent
         Console.WriteLine("Virtual Childe");
     }
 }
-
+```
 
 ### Overloading
 2 methods with same name but different parameters
