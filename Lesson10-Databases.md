@@ -90,6 +90,55 @@ using(var it = new MyResource()){
 
 *ToList()*: normally for queries
 
+### DB Code
+```cs
+using (var db = new NorthwindContext())
+            {
+                var shop = new Shop()
+                {
+                    Name = "Test",
+                };
+                db.Shops.Add(shop);
+                db.SaveChanges();
+            
+                var wine1 = new Wine()
+                {
+                    ShopId = shop.ShopId,
+                    Name = "Dark House"
+                };
+                var wine2 = new Wine()
+                {
+                    ShopId = shop.ShopId,
+                    Name = "Maison du House"
+                };
+            
+                db.Wines.Add(wine1);
+                db.Wines.Add(wine2);
+                db.SaveChanges();
+            }
+            using (var db = new NorthwindContext())
+            {
+                var wine1 = new Wine()
+                {
+                    Name = "Quick House"
+                };
+                var wine2 = new Wine()
+                {
+                    Name = "Maison du bois"
+                };
+                var shop = new Shop()
+                {
+                    Name = "Related Test",
+                    Wines = new List<Wine>()
+                    {
+                        wine1, wine2
+                    }
+                };
+                db.Shops.Add(shop);
+                db.SaveChanges();
+            }
+```
+
 
 # HW.
 
