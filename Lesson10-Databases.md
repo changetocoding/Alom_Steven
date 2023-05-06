@@ -94,12 +94,14 @@ using(var it = new MyResource()){
 ```cs
 using (var db = new NorthwindContext())
             {
+            // Shop has multiple wines
                 var shop = new Shop()
                 {
                     Name = "Test",
                 };
                 db.Shops.Add(shop);
-                db.SaveChanges();
+                db.SaveChanges(); // This updates the shop so the shop now has a shop Id which is the id of the newly inserted row
+            
             
                 var wine1 = new Wine()
                 {
