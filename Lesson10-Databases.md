@@ -22,9 +22,20 @@ So much code writing. EF solves it.
 EF6 is the entity framework for .net framework projects (old .net)
 EFCore is for .net core projects. 
 
-They are dev'd in parallel but there are big breaking changes between them. We will focus on EFCore
+They are dev'd in parallel but there are big breaking changes between them. We will focus on EFCore.
+
+From .net6 forward you will need to use EFcore
+## Project setup
+Create a db project with these libraries (Install the latest versions):
+```
+Microsoft.EntityFrameworkCore
+Microsoft.EntityFrameworkCore.SqlServer
+Microsoft.EntityFrameworkCore.Tools
+```
+![image](https://user-images.githubusercontent.com/63453969/182610077-fae29d0d-08ad-4a4e-9277-f912de292d58.png)
 
 
+## Pop quiz
 You already know alot of this so please explain:
 1. Connection Strings 
 2. Db context
@@ -46,7 +57,7 @@ You can automatically generate the c# code for a db table using scaffolding
 https://docs.microsoft.com/en-us/ef/core/managing-schemas/scaffolding?tabs=dotnet-core-cli
 
 1. Set db project SwiftProposal.Data as startup project
-2. Open up Package Manager Console
+2. Open up Package Manager Console (Tools > nugget package manager > package manager console)
 3. Set default project in the package manager window to SwiftProposal.Data 
 4. Run below
 ```
