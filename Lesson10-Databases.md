@@ -116,27 +116,6 @@ using (var db = new NorthwindContext())
                 db.Wines.Add(wine2);
                 db.SaveChanges();
             }
-            using (var db = new NorthwindContext())
-            {
-                var wine1 = new Wine()
-                {
-                    Name = "Quick House"
-                };
-                var wine2 = new Wine()
-                {
-                    Name = "Maison du bois"
-                };
-                var shop = new Shop()
-                {
-                    Name = "Related Test",
-                    Wines = new List<Wine>()
-                    {
-                        wine1, wine2
-                    }
-                };
-                db.Shops.Add(shop);
-                db.SaveChanges();
-            }
 ```
 
 
