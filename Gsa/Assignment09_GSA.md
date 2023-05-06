@@ -43,3 +43,71 @@ In GSA folder you will find a file "pnl.csv". Your task is to transform it into 
         public decimal Amount { get; set; }
     }
 ```
+# Part 2 Console App 
+Create a console app that:
+0. Import the Capitals
+
+1. Given a list of strategies returns a time series of monthly capital values for the strategies. You must support the abilty to specify more than 1 strategy.
+
+Example Command: (Note multiple strategies can be specified)
+```
+Capital "Strategy1,Strategy2"
+```
+Response
+```
+strategy: Strategy1, date: 2017-01-01, capital: 1000
+strategy: Strategy2, date: 2017-01-01, capital: 2000
+```
+
+2. Cumulative P&Ls
+Returns a daily time series of cumulative P&Ls aggregated by *region*. The cumluative pnl is the sum of all the pnl upto that date in that region.  
+
+Example Command: (Note Region must be specified)
+```
+cumulative-pnl EU
+```
+Response assuming pnl is like this:
+Date | Pnl
+------------- | -------------
+2017-01-01 | 1000
+2017-01-02 | 1000
+2017-01-03 | 500
+2017-01-04 | 1000
+
+```
+Cumulative Pnl for region EU
+
+date: 2017-01-01, cumulativePnl: 1000
+date: 2017-01-02, cumulativePnl: 2000
+date: 2017-01-03, cumulativePnl: 2500
+date: 2017-01-04, cumulativePnl: 3500
+...
+```
+
+
+
+
+Work together on the task. It may take longer than a week to complete
+
+# Part 3 - Save to db
+You task now is to save the pnl, capital and strategies (from properties) into a relational database and table structure
+
+Your strategy class should now look more like this
+```cs
+    public partial class Strategy
+    {
+        public Strategy()
+        {
+            Capital = new HashSet<Capital>();
+            Pnl = new HashSet<Pnl>();
+        }
+
+        public int StrategyId { get; set; }
+        public string StratName { get; set; }
+        public string Region { get; set; }
+
+        public ICollection<Capital> Capital { get; set; }
+        public ICollection<Pnl> Pnl { get; set; }
+    }
+```
+
