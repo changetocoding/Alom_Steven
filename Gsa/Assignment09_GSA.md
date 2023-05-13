@@ -45,6 +45,8 @@ In GSA folder you will find a file "pnl.csv". Your task is to transform it into 
 ```
 # Part 2 Console App 
 Create a console app that:
+
+
 0. Import the Capitals
 
 1. Given a list of strategies returns a time series of monthly capital values for the strategies. You must support the abilty to specify more than 1 strategy.
