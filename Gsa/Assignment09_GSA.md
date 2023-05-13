@@ -46,7 +46,7 @@ In GSA folder you will find a file "pnl.csv". Your task is to transform it into 
 ```
 
 ## Capitals & strategies
-Do the same for capitals, and strategies from the properties file. Your strategyPnl Class should now look like this 
+Do the same for capitals, and strategies (from the properties.csv). Your strategyPnl Class should now look like this 
 ```cs
     public class Strategy
     {
@@ -124,7 +124,7 @@ date: 2017-01-04, cumulativePnl: 3500
 Work together on the task. It may take longer than a week to complete
 
 # Part 3 - Save to db
-You task now is to save the pnl, capital and strategies (from properties) into a relational database and table structure
+You task now is to save the pnl, capital and strategies (from properties.csv) into a relational database and table structure
 
 Your strategy class should now look more like this
 ```cs
