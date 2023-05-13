@@ -29,6 +29,7 @@ properties.csv contains the (single) region of each strategy.
 
 
 # Part 1 - Importing Pnl csv
+## Pnls 
 In GSA folder you will find a file "pnl.csv". Your task is to transform it into a list of the _StrategyPnl_ class below:
 ```cs
     public class StrategyPnl
@@ -43,22 +44,42 @@ In GSA folder you will find a file "pnl.csv". Your task is to transform it into 
         public decimal Amount { get; set; }
     }
 ```
+
+## Capitals & strategies
+Do the same for capitals, and strategies from the properties file. Your strategyPnl Class should now look like this 
+```cs
+    public partial class Strategy
+    {
+        public Strategy()
+        {
+            Capital = new HashSet<Capital>();
+            Pnl = new HashSet<Pnl>();
+        }
+
+        public int StrategyId { get; set; }
+        public string StratName { get; set; }
+        public string Region { get; set; }
+
+        public ICollection<Capital> Capital { get; set; }
+        public ICollection<Pnl> Pnl { get; set; }
+    }
+```
+
 # Part 2 Console App 
-Create a console app that:
+Create a console app that performs these functions:
 
 
-0. Import the Capitals invested at the start of the month into the database
-
-1. Total invested in a strategy:
+1. Total capital invested in a strategy:
 - Given a list of strategies returns a time series of the total capital invested in the strategies. This does not include the PnL
-- You must support the abilty to specify more than 1 strategy. 
 - The entries in capital.csv are "the US$ amounts invested in each strategy at the beginning of the month", so you must sum up values up to that point in time
+- You must support the abilty to specify more than 1 strategy. 
 
 Example Command: (Note multiple strategies can be specified)
 ```
 Capital "Strategy1,Strategy2"
 ```
-If capital.csv
+
+capital.csv looks like this:
 ```
 Date,Strategy1,Strategy2
 2017-01-01,1000,2000
@@ -99,9 +120,6 @@ date: 2017-01-03, cumulativePnl: 2500
 date: 2017-01-04, cumulativePnl: 3500
 ...
 ```
-
-
-
 
 Work together on the task. It may take longer than a week to complete
 
