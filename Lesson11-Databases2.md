@@ -1,4 +1,119 @@
 # Entity framework 2
+## Class code
+```csharp
+public partial class Wine
+{
+    public int WineId { get; set; }
+
+    public int ShopId { get; set; }
+
+    public string Name { get; set; } = null!;
+
+    public int? Qty { get; set; }
+
+    public virtual Shop Shop { get; set; } = null!;
+}
+
+public partial class Shop
+{
+    public int ShopId { get; set; }
+
+    public string Name { get; set; } = null!;
+
+    public string? Type { get; set; }
+
+    public virtual ICollection<Wine> Wines { get; set; } = new List<Wine>();
+}
+
+// Adding a record
+using (var dbContext = new CsharpFinalContext())
+{
+    var newShop = new Shop() { Name = "SteveAlom", Type = "Online" };
+    dbContext.Shops.Add(newShop);
+    dbContext.SaveChanges();
+
+    Console.WriteLine(newShop.ShopId);
+}
+
+
+//Querying
+using (var dbContext = new CsharpFinalContext())
+{
+    var shops = dbContext.Shops.Where(x => x.Name == "SteveAlom").AsNoTracking().ToList();
+    shops.First().Name = "Test: " + shops.First().Name;
+
+    Console.WriteLine(shops.First().Name);
+}
+
+using (var db = new CsharpFinalContext())
+{
+    var result = db.Shops.SingleOrDefault(b => b.ShopId == 5);
+    if (result != null)
+    {
+        result.Name = "David Has Taken over";
+        db.SaveChanges();
+    }
+}
+
+//Saving multiple entries
+using (var db = new CsharpFinalContext())
+{
+    var shop = new Shop() { Name = "Method1", Type = "Online" };
+
+    var wines = new List<Wine>()
+    {
+         new Wine() { Name = "Wine1", Qty = 10 },
+         new Wine() { Name = "Wine2", Qty = 10  },
+         new Wine() { Name = "Wine3", Qty = 10  },
+         new Wine() { Name = "Wine4", Qty = 10  },
+     };
+
+    db.Shops.Add(shop);
+    db.SaveChanges();// shop.ShopId gets updated!
+
+    foreach (var wine in wines)
+    {
+        wine.ShopId = shop.ShopId;
+        db.Wines.Add(wine);
+    }
+    db.SaveChanges();
+}
+
+using (var db = new CsharpFinalContext())
+{
+    var shop = new Shop() { Name = "Method2", Type = "Online" };
+    shop.Wines = new List<Wine>()
+    {
+         new Wine() { Name = "RedWine1", Qty = 110 },
+         new Wine() { Name = "RedWine2", Qty = 110  },
+    };
+
+
+    db.Shops.Add(shop);
+    db.SaveChanges();
+}
+
+
+using (var db = new CsharpFinalContext())
+{
+    // Lazy loading
+    var shops = db.Shops.Where(x => x.Wines.Count() > 0)
+        .Include(x => x.Wines)
+        .ToList();
+
+    foreach (var shop in shops)
+    {
+        Console.WriteLine("Shop: " + shop.Name);
+        foreach (var wine in shop.Wines)
+        {
+            Console.WriteLine("... Wine: " + wine.Name);
+        }
+    }
+
+    var method2Shop = db.Shops.First(x => x.Name == "Method2");
+    var wines = db.Wines.Where(x => x.ShopId == method2Shop.ShopId).ToList();
+}
+```
 
 ### Adding a record and Querying
 ```csharp
