@@ -47,9 +47,9 @@ In GSA folder you will find a file "pnl.csv". Your task is to transform it into 
 Create a console app that:
 
 
-0. Import the Capitals
+0. Import the Capitals invested at the start of the month into the database
 
-1. Given a list of strategies returns a time series of monthly capital values for the strategies. You must support the abilty to specify more than 1 strategy.
+1. Given a list of strategies returns a time series of the total monthly capital values for the strategies. You must support the abilty to specify more than 1 strategy. The entries in capital.csv are "the US$ amounts invested in each strategy at the beginning of the month", so you must sum up values up to that point in time.
 
 Example Command: (Note multiple strategies can be specified)
 ```
@@ -60,6 +60,8 @@ Response
 strategy: Strategy1, date: 2017-01-01, capital: 1000
 strategy: Strategy2, date: 2017-01-01, capital: 2000
 ```
+
+
 
 2. Cumulative P&Ls
 Returns a daily time series of cumulative P&Ls aggregated by *region*. The cumluative pnl is the sum of all the pnl upto that date in that region.  
