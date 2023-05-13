@@ -49,16 +49,28 @@ Create a console app that:
 
 0. Import the Capitals invested at the start of the month into the database
 
-1. Given a list of strategies returns a time series of the total monthly capital values for the strategies. You must support the abilty to specify more than 1 strategy. The entries in capital.csv are "the US$ amounts invested in each strategy at the beginning of the month", so you must sum up values up to that point in time.
+1. Total invested in a strategy:
+- Given a list of strategies returns a time series of the total capital invested in the strategies. This does not include the PnL
+- You must support the abilty to specify more than 1 strategy. 
+- The entries in capital.csv are "the US$ amounts invested in each strategy at the beginning of the month", so you must sum up values up to that point in time
 
 Example Command: (Note multiple strategies can be specified)
 ```
 Capital "Strategy1,Strategy2"
 ```
+If capital.csv
+```
+Date,Strategy1,Strategy2
+2017-01-01,1000,2000
+2017-02-01,2000,2000
+```
+
 Response
 ```
 strategy: Strategy1, date: 2017-01-01, capital: 1000
 strategy: Strategy2, date: 2017-01-01, capital: 2000
+strategy: Strategy1, date: 2017-02-01, capital: 3000
+strategy: Strategy2, date: 2017-02-01, capital: 4000
 ```
 
 
