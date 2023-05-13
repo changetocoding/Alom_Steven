@@ -48,7 +48,7 @@ In GSA folder you will find a file "pnl.csv". Your task is to transform it into 
 ## Capitals & strategies
 Do the same for capitals, and strategies from the properties file. Your strategyPnl Class should now look like this 
 ```cs
-    public partial class Strategy
+    public class Strategy
     {
         public Strategy()
         {
