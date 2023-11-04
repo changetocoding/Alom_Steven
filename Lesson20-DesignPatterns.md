@@ -135,4 +135,10 @@ SomethingHappened("bar");
 
 
 ### Homework
-Create a project that puts the strategy, builder and factory patterns into use
+Create a project that puts the builder and factory patterns into use.
+
+You must create a struct with has at least 5 properties.
+
+You then create a builder and a factory that allows you to create different variations of the object.
+
+
